@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>project</title>
+</head>
+<body class="h-full">
+    <div class="w-full h-full bg-zinc-800 p-10 text-white">
+        <div class="nav mb-10">
+            <a class="text-blue-500" href="/">Back to Home</a>
+        </div>
+        <h1 class="text-3xl tracking-tighter mb-6">All Users</h1>
+        <div class="users flex gap-3 flex-wrap">
+            <% users.forEach(function(user){ %> 
+                <div class="user w-72 p-4 bg-zinc-600 rounded-lg">
+                    <div class="w-full h-52 bg-zinc-800 rounded-lg overflow-hidden"> 
+                        <img class="w-full h-full object-cover" src="<%= user.image %>" alt="image here">
+                    </div>
+                    
+                    <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
+                    <h5 class="text-zinc-500"><%= user.email %></h5>
+                    <div class="flex gap-3 mt-5">
+                        <a class="text-blue-500" href="/edit/<%= user._id %>">Edit User</a>
+                        <a class="text-red-500" href="/delete/<%= user._id %>">Delete user</a>
+                    </div>
+                </div>
+            <% }); %>  </div>
+    </div>
+</body>
+</html>
